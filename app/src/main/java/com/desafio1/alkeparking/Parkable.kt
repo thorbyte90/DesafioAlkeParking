@@ -1,9 +1,10 @@
 package com.desafio1.alkeparking
 
 import kotlin.math.ceil
-import kotlin.math.roundToInt
 
 open class Parkable(open var vehicle: Vehicle, open val vehicles: MutableSet<Vehicle>) {
+    var totalCheckOut = 0
+    var earnings = 0
 
     fun checkOutVehicle(plate: String, onSuccess: (Int) -> String, onError: () -> String): String {
         val vehicleToRemove = vehicles.filter { it.plate == plate }
@@ -11,6 +12,8 @@ open class Parkable(open var vehicle: Vehicle, open val vehicles: MutableSet<Veh
             val foundVehicle = vehicleToRemove[0]
             val fee = calculateFee(foundVehicle.type, foundVehicle.parkedTime, foundVehicle.discountCard != null)
             vehicles.remove(foundVehicle)
+            totalCheckOut++
+            earnings += fee
             onSuccess(fee)
         } else onError()
     }
@@ -33,6 +36,6 @@ open class Parkable(open var vehicle: Vehicle, open val vehicles: MutableSet<Veh
                 VehicleType.BUS -> VehicleType.BUS.twoHoursBase
             }
         }
-        return if (hasDiscountCard) (total * 0.85).roundToInt() else total
+        return if (hasDiscountCard) (total * 0.85).toInt() else total
     }
 }

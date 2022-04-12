@@ -13,4 +13,13 @@ data class Parking(override val vehicles: MutableSet<Vehicle>, override var vehi
         }
     }
 
+    fun getParkingInfo(): String {
+        val checkOutInfo: Pair<Int, Int> = Pair(totalCheckOut, earnings)
+        return "${checkOutInfo.first} vehicles have checked out and have earnings of $${checkOutInfo.second}."
+    }
+
+    fun listVehicles(): List<String> {
+        return vehicles.map { it.plate }
+    }
+
 }

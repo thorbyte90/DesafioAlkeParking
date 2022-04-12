@@ -40,6 +40,11 @@ fun main() {
     println(parking.checkOutVehicle("EE555EE", ::onSuccess, ::onError))
     println(parking.checkOutVehicle("BB222BB", ::onSuccess, ::onError))
 
+    //parking info
+    println(parking.getParkingInfo())
+
+    //list of vehicles
+    println(parking.listVehicles())
 }
 
 fun onSuccess(fee: Int) = "Your fee is $$fee. Come back soon."
