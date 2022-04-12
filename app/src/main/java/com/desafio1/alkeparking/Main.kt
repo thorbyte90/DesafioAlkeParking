@@ -37,10 +37,10 @@ fun main() {
         println(parking.addVehicle(it))
     }
 
-    println(parking.checkOutVehicle("BB222BB", ::onSuccess, ::onError))
+    println(parking.checkOutVehicle("EE555EE", ::onSuccess, ::onError))
     println(parking.checkOutVehicle("BB222BB", ::onSuccess, ::onError))
 
 }
 
-fun onSuccess(fees: Int) = "Your fee is $$fees. Come back soon."
+fun onSuccess(fee: Int) = "Your fee is $$fee. Come back soon."
 fun onError() = "Sorry, the check-out failed"
