@@ -2,7 +2,7 @@ package com.desafio1.alkeparking
 
 import kotlin.math.ceil
 
-open class Parkable(open var vehicle: Vehicle, open val vehicles: MutableSet<Vehicle>) {
+open class Parkable(open val vehicle: Vehicle, open val vehicles: MutableSet<Vehicle>) {
     var totalCheckOut = 0
     var earnings = 0
 

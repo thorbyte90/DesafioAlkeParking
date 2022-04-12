@@ -10,6 +10,7 @@ fun main() {
 
     val parking = Parking(mutableSetOf(car, moto, minibus, bus), car)
 
+    // create list of vehicles
     val listOfVehicles = listOf(
         Vehicle("EE555EE", VehicleType.CAR, Calendar.getInstance()),
         Vehicle("FF666FF", VehicleType.MOTO, Calendar.getInstance()),
@@ -33,10 +34,12 @@ fun main() {
         Vehicle("XX444XX", VehicleType.MOTO, Calendar.getInstance()),
     )
 
+    // add list of vehicles
     listOfVehicles.map {
         println(parking.addVehicle(it))
     }
 
+    // remove vehicles and calculate fees
     println(parking.checkOutVehicle("EE555EE", ::onSuccess, ::onError))
     println(parking.checkOutVehicle("BB222BB", ::onSuccess, ::onError))
 
