@@ -1,6 +1,6 @@
 package com.desafio1.alkeparking
 
-data class Parking(val vehicles: MutableSet<Vehicle>) {
+data class Parking(override val vehicles: MutableSet<Vehicle>, override var vehicle: Vehicle): Parkable(vehicle, vehicles) {
     private val availableSpot: Int = 20
 
     fun addVehicle(vehicle: Vehicle): String {
